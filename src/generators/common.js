@@ -90,9 +90,9 @@ function addSeconds(d, s) {
 // ---------- currency ----------
 
 const CURRENCY = {
-  shopee: { currency: 'VND', rate: 25000 },
-  tiktok: { currency: 'IDR', rate: 16000 },
-  lazada: { currency: 'SGD', rate: 1.3 },
+  shopee: { currency: 'THB', rate: 35 },
+  tiktok: { currency: 'THB', rate: 35 },
+  lazada: { currency: 'THB', rate: 35 },
 };
 
 // Returns the provider-typed value: shopee -> integer number, tiktok -> string
@@ -103,9 +103,9 @@ function convertPrice(provider, baseAmount) {
   const raw = Number(baseAmount) * cfg.rate;
   switch (provider) {
     case 'shopee':
-      return Math.round(raw / 1000) * 1000;
+      return Math.round(raw);
     case 'tiktok':
-      return String(Math.round(raw / 100) * 100);
+      return String(Math.round(raw));
     case 'lazada':
       return raw.toFixed(2);
     default:

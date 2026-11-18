@@ -9,8 +9,8 @@ const PROVIDER = 'shopee';
 function buildItem(product, quantity) {
   const item = structuredClone(itemTemplate);
   const itemId = Number(product.item_id);
-  const original = Math.max(common.convertPrice(PROVIDER, product.original_price), 1000);
-  const discounted = Math.min(Math.max(common.convertPrice(PROVIDER, product.sale_price), 1000), original);
+  const original = Math.max(common.convertPrice(PROVIDER, product.original_price), 1);
+  const discounted = Math.min(Math.max(common.convertPrice(PROVIDER, product.sale_price), 1), original);
 
   item.item_id = itemId;
   item.order_item_id = itemId;
@@ -44,6 +44,8 @@ function generate({ lines, now = new Date() }) {
   order.pay_time = payTime;
   order.pickup_done_time = pickupDoneTime;
   order.ship_by_date = createTime + order.days_to_ship * 86400;
+  // Realistic domestic shipping fee in THB (whole baht, number like the template).
+  order.estimated_shipping_fee = common.randInt(25, 80);
 
   const addr = common.mockAddress();
   order.recipient_address.name = buyer.maskedName;

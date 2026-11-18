@@ -23,7 +23,7 @@
   "seller_sku": "red_iphone_256",
   "shipping_provider_id": "6617675021119438849",
   "seller_discount": "0",
-  "currency": "IDR",
+  "currency": "THB",
   "package_id": "1153132168123859123",
   "rts_time": 1678389618,
   "item_tax": [
@@ -70,7 +70,7 @@
       "original_price": "0.01",
       "rts_time": 1678389618,
       "package_status": "TO_FULFILL",
-      "currency": "USD",
+      "currency": "THB",
       "shipping_provider_name": "TT Virtual express",
       "cancel_user": "BUYER",
       "shipping_provider_id": "6617675021119438849",

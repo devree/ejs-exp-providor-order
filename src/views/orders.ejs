@@ -59,7 +59,7 @@
           <td><a href="/orders/<%= o.id %>"><code><%= o.externalOrderId %></code></a></td>
           <td><span class="badge badge-<%= o.provider %>"><%= providerLabels[o.provider] || o.provider %></span></td>
           <td class="num"><%= o.itemCount %></td>
-          <td class="num"><%= fmtAmount(o.totalAmount) %> <%= o.currency %></td>
+          <td class="num">฿<%= fmtAmount(o.totalAmount) %></td>
           <td><%= fmtDate(o.createdAt) %></td>
           <td>
             <% if (o.isPulled) { %><span class="badge badge-pulled">ถูกดึงแล้ว</span>

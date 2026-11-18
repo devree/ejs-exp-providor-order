@@ -65,7 +65,7 @@
   "wallet_credits": "0.00",
   "reverse_order_id": "704947701379284",
   "updated_at": "2014-10-15 19:12:15 +0800",
-  "currency": "SGD",
+  "currency": "THB",
   "shipping_provider_type": "standard",
   "voucher_platform_lpi": "0.00",
   "shipping_fee_original": "0.00",
@@ -82,7 +82,7 @@
   "shipment_provider": "LEL",
   "priority_fulfillment_tag": "Kirim secepat mungkin_null_null",
   "voucher_amount": "0.00",
-  "supply_price_currency": "CNY",
+  "supply_price_currency": "THB",
   "digital_delivery_info": "delivery",
   "extra_attributes": "null"
 }

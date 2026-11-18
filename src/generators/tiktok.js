@@ -10,8 +10,8 @@ const PROVIDER = 'tiktok';
 // template has no quantity field), so every line_item counts as quantity 1.
 function buildLineItem(product, trackingNumber, rtsTime) {
   const li = structuredClone(lineItemTemplate);
-  const original = Math.max(Number(common.convertPrice(PROVIDER, product.original_price)), 100);
-  const sale = Math.min(Math.max(Number(common.convertPrice(PROVIDER, product.sale_price)), 100), original);
+  const original = Math.max(Number(common.convertPrice(PROVIDER, product.original_price)), 1);
+  const sale = Math.min(Math.max(Number(common.convertPrice(PROVIDER, product.sale_price)), 1), original);
   const originalStr = String(original);
   const saleStr = String(sale);
   const productId = String(product.item_id);
@@ -26,7 +26,7 @@ function buildLineItem(product, trackingNumber, rtsTime) {
   li.sku_image = product.image_url;
   li.original_price = originalStr;
   li.sale_price = saleStr;
-  li.currency = 'IDR';
+  li.currency = 'THB';
   li.tracking_number = trackingNumber;
   li.rts_time = rtsTime;
 
@@ -40,7 +40,7 @@ function buildLineItem(product, trackingNumber, rtsTime) {
   sub.sku_image = product.image_url;
   sub.original_price = originalStr;
   sub.sale_price = saleStr;
-  sub.currency = 'IDR';
+  sub.currency = 'THB';
   sub.tracking_number = trackingNumber;
   sub.rts_time = rtsTime;
 

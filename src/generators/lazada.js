@@ -109,7 +109,7 @@ function generate({ lines, now = new Date() }) {
 
   return {
     externalOrderId: orderId,
-    currency: 'SGD',
+    currency: 'THB',
     totalAmount: total,
     items,
     payload: order,

@@ -22,7 +22,7 @@
     <div><dt>Order ID</dt><dd><code><%= order.externalOrderId %></code></dd></div>
     <div><dt>Provider</dt><dd><span class="badge badge-<%= order.provider %>"><%= providerLabels[order.provider] || order.provider %></span></dd></div>
     <div><dt>สกุลเงิน</dt><dd><%= order.currency %></dd></div>
-    <div><dt>ยอดรวม</dt><dd><%= fmtAmount(order.totalAmount) %> <%= order.currency %></dd></div>
+    <div><dt>ยอดรวม</dt><dd>฿<%= fmtAmount(order.totalAmount) %></dd></div>
     <div><dt>จำนวนสินค้า</dt><dd><%= order.itemCount %></dd></div>
     <div><dt>เวลาสร้าง</dt><dd><%= fmtDate(order.createdAt) %></dd></div>
     <div><dt>สถานะการถูกดึง</dt><dd>
@@ -47,8 +47,8 @@
           <th>ชื่อสินค้า</th>
           <th>SKU</th>
           <th class="num">จำนวน</th>
-          <th class="num">ราคาต่อหน่วย (<%= order.currency %>)</th>
-          <th class="num">รวม (<%= order.currency %>)</th>
+          <th class="num">ราคาต่อหน่วย (฿)</th>
+          <th class="num">รวม (฿)</th>
         </tr>
       </thead>
       <tbody>
