@@ -1,0 +1,17 @@
+<%- include('layout/header', { title: 'เกิดข้อผิดพลาด', active: '' }) %>
+<%
+  var st = (typeof status !== 'undefined' && status) ? status : 500;
+  var heading = st === 404 ? 'ไม่พบหน้าที่ต้องการ'
+    : st === 400 ? 'คำขอไม่ถูกต้อง'
+    : 'เกิดข้อผิดพลาดในระบบ';
+%>
+<div class="card empty">
+  <h1><%= st %></h1>
+  <h2><%= heading %></h2>
+  <p><%= (typeof message !== 'undefined' && message) ? message : '' %></p>
+  <p>
+    <a href="/products" class="btn btn-primary">ไปหน้าสินค้า</a>
+    <a href="/orders" class="btn btn-secondary">ไปหน้าคำสั่งซื้อ</a>
+  </p>
+</div>
+<%- include('layout/footer') %>

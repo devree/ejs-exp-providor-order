@@ -1,0 +1,95 @@
+{
+  "id": "577086512123755123",
+  "sku_id": "2729382476852921560",
+  "combined_listing_skus": [
+    {
+      "sku_id": "2729382476852921123",
+      "sku_count": 1,
+      "product_id": "1729582718312380456",
+      "seller_sku": "yellow-24-XL"
+    }
+  ],
+  "product_id": "1729582718312380123",
+  "product_name": "Women's Winter Crochet Clothes",
+  "sku_name": "Iphone",
+  "sku_image": "https://p16-oec-va.itexeitg.com/tos-maliva-d-o5syd03w52-us/46123e87d14f40b69b839",
+  "original_price": "0.01",
+  "sale_price": "0.01",
+  "pfand_fee": "1.5",
+  "platform_discount": "0",
+  "display_status": "TO_SHIP",
+  "cancel_user": "BUYER",
+  "sku_type": "PRE_ORDER",
+  "seller_sku": "red_iphone_256",
+  "shipping_provider_id": "6617675021119438849",
+  "seller_discount": "0",
+  "currency": "IDR",
+  "package_id": "1153132168123859123",
+  "rts_time": 1678389618,
+  "item_tax": [
+    {
+      "tax_type": "SALES_TAX",
+      "tax_amount": "21.2",
+      "tax_rate": "0.35"
+    }
+  ],
+  "package_status": "TO_FULFILL",
+  "shipping_provider_name": "TT Virtual express",
+  "is_gift": false,
+  "cancel_reason": "Discount not as expected",
+  "small_order_fee": "5000",
+  "retail_delivery_fee": "1.28",
+  "tracking_number": "JX12345",
+  "buyer_service_fee": "1000",
+  "handling_duration_days": "7",
+  "is_dangerous_good": true,
+  "needs_prescription": true,
+  "gift_retail_price": "20",
+  "is_unboxing_item": false,
+  "unboxing_sku_code": "14531134",
+  "unboxing_case_list": [
+    {
+      "unbox_sku": "14531134",
+      "unbox_sku_type": "GIFT"
+    }
+  ],
+  "sub_item_info": [
+    {
+      "id": "577086512123755123",
+      "sku_id": "2729382476852921560",
+      "display_status": "UNPAID",
+      "product_name": "Women's Winter Crochet Clothes",
+      "seller_sku": "red_iphone_256",
+      "sku_image": "https://p16-oec-va.itexeitg.com/tos-maliva-d-o5syd03w52-us/46123e87d14f40b69b839",
+      "sku_name": "Iphone",
+      "product_id": "1729582718312380123",
+      "sale_price": "0.01",
+      "platform_discount": "0",
+      "seller_discount": "0",
+      "cancel_reason": "Discount not as expected",
+      "original_price": "0.01",
+      "rts_time": 1678389618,
+      "package_status": "TO_FULFILL",
+      "currency": "USD",
+      "shipping_provider_name": "TT Virtual express",
+      "cancel_user": "BUYER",
+      "shipping_provider_id": "6617675021119438849",
+      "item_tax": [
+        {
+          "tax_type": "SALES_TAX",
+          "tax_amount": "21.2",
+          "tax_rate": "0.35"
+        }
+      ],
+      "tracking_number": "JX12345",
+      "package_id": "1153132168123859123",
+      "retail_delivery_fee": "1.28",
+      "is_dangerous_good": false,
+      "warehouse_id": "6955005333819123123"
+    }
+  ],
+  "distance_shipping_fee": "1000",
+  "distance_fee": "2000",
+  "shipping_vat_amount": "3.5",
+  "shipping_vat_rate": "0.25"
+}

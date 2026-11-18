@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= (typeof title !== 'undefined' && title) ? title : 'Backoffice' %> | Order Pulling Simulator</title>
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<div class="app-shell">
+  <%- include('sidebar', { active: (typeof active !== 'undefined') ? active : '' }) %>
+  <main class="content">

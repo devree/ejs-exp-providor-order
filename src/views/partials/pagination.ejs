@@ -1,0 +1,37 @@
+<%
+  // Params: page, totalPages, basePath, query (object of extra params; empty values skipped)
+  var _extra = (typeof query !== 'undefined' && query) ? query : {};
+  var _base = (typeof basePath !== 'undefined' && basePath) ? basePath : '';
+  var _href = function (p) {
+    var parts = [];
+    Object.keys(_extra).forEach(function (k) {
+      var v = _extra[k];
+      if (v !== undefined && v !== null && v !== '') parts.push(encodeURIComponent(k) + '=' + encodeURIComponent(v));
+    });
+    parts.push('page=' + p);
+    return _base + '?' + parts.join('&');
+  };
+  var _cur = Number(page) || 1;
+  var _last = Number(totalPages) || 1;
+  var _nums = [];
+  for (var _i = 1; _i <= _last; _i++) {
+    if (_i === 1 || _i === _last || Math.abs(_i - _cur) <= 2) _nums.push(_i);
+  }
+  var _items = [];
+  _nums.forEach(function (n, idx) {
+    if (idx > 0 && n - _nums[idx - 1] > 1) _items.push(null);
+    _items.push(n);
+  });
+%>
+<% if (_last > 1) { %>
+<nav class="pagination" aria-label="การแบ่งหน้า">
+  <% if (_cur > 1) { %><a href="<%= _href(_cur - 1) %>">ก่อนหน้า</a><% } else { %><span class="disabled">ก่อนหน้า</span><% } %>
+  <% _items.forEach(function (n) { %>
+    <% if (n === null) { %><span class="disabled">…</span>
+    <% } else if (n === _cur) { %><span class="current"><%= n %></span>
+    <% } else { %><a href="<%= _href(n) %>"><%= n %></a><% } %>
+  <% }) %>
+  <% if (_cur < _last) { %><a href="<%= _href(_cur + 1) %>">ถัดไป</a><% } else { %><span class="disabled">ถัดไป</span><% } %>
+  <span class="info">หน้า <%= _cur %> / <%= _last %></span>
+</nav>
+<% } %>

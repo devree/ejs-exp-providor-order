@@ -1,0 +1,50 @@
+<%- include('layout/header') %>
+<h1>สินค้า</h1>
+
+<form method="get" action="/products" class="toolbar">
+  <input type="search" name="q" value="<%= q %>" placeholder="ค้นหาชื่อสินค้าหรือ SKU" maxlength="100">
+  <button type="submit" class="btn btn-primary">ค้นหา</button>
+  <% if (q) { %><a href="/products" class="btn btn-secondary">ล้างการค้นหา</a><% } %>
+  <span class="spacer"></span>
+  <span>ทั้งหมด <strong><%= total %></strong> รายการ</span>
+</form>
+
+<% if (products.length === 0) { %>
+  <div class="card empty">ไม่พบสินค้า</div>
+<% } else { %>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>รูป</th>
+          <th>ชื่อ</th>
+          <th>SKU</th>
+          <th>หมวด</th>
+          <th class="num">ราคาปกติ</th>
+          <th class="num">ราคาขาย</th>
+          <th class="num">น้ำหนัก (kg)</th>
+          <th>รหัสคลัง</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% products.forEach(function (p) { %>
+        <tr>
+          <td><img class="thumb" src="<%= p.image_url %>" alt="<%= p.name %>" loading="lazy"></td>
+          <td>
+            <%= p.name %>
+            <% if (p.variation_name) { %><br><small style="color:var(--muted)"><%= p.variation_name %></small><% } %>
+          </td>
+          <td><code><%= p.sku %></code></td>
+          <td><%= p.category %></td>
+          <td class="num"><%= p.original_price %></td>
+          <td class="num"><%= p.sale_price %></td>
+          <td class="num"><%= p.weight_kg %></td>
+          <td><%= p.warehouse_code %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <%- include('partials/pagination', { page: page, totalPages: totalPages, basePath: '/products', query: { q: q } }) %>
+<% } %>
+<%- include('layout/footer') %>

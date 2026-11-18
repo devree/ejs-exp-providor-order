@@ -1,0 +1,789 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 สร้าง `package.json` (dependency: `express`, `ejs`, `pg`; Node 22; script `start`) และ `.gitignore`, `.dockerignore`": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245428
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914255253
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914982106
+      }
+    ],
+    "1.2 สร้าง `src/config.js` อ่านค่าจาก env (`APP_PORT`, `DB_*`, `PULL_LIMIT_DEFAULT=10`, `PULL_LIMIT_MAX=50`, `ORDER_ITEMS_MAX=10`) และ `.env.example`": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245473
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914988094
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794915424224
+      }
+    ],
+    "1.3 สร้าง `Dockerfile` (`node:22-alpine`, `npm ci --omit=dev`, รันด้วย user `node`)": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245504
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794915428265
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794915910172
+      }
+    ],
+    "1.4 สร้าง `docker-compose.yml` ที่มี service `db` (postgres:16-alpine, healthcheck, named volume `pgdata`) และ `app` (depends_on healthy, ไม่ publish port ของ DB)": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245530
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794915915386
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794915985756
+      }
+    ],
+    "2.1 สร้าง `src/db/pool.js` (pg Pool จาก config)": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245558
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794915990325
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794916049023
+      }
+    ],
+    "2.2 สร้าง `db/migrations/001_init.sql` ตาม D หัวข้อ 3 (`products`, `orders`, `order_items` พร้อม `payload` JSONB, index สำหรับ pulling และ list, `schema_migrations`)": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245590
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794916054560
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794916094359
+      }
+    ],
+    "2.3 สร้าง `src/db/migrate.js` รัน migration ตามลำดับชื่อไฟล์ใน transaction และบันทึกใน `schema_migrations`": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245622
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794916098474
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794916661856
+      }
+    ],
+    "2.4 สร้าง `src/server.js` ให้ retry เชื่อมต่อ DB, รัน migration, seed แล้วจึง `listen`": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245647
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794916670152
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794916723194
+      }
+    ],
+    "3.1 สร้าง `src/db/seed/products.js` สินค้า 36 รายการใน 6 หมวด ครบทุกฟิลด์ตาม R1.3 (`sku`, `name`, `variation_name`, `category`, `original_price`, `sale_price`, `weight_kg`, `image_url`, `product_url`, `warehouse_code`, `item_id`, `model_id`) โดยสินค้าหมวดความงามอ้างอิงตัวอย่าง Shopee": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245675
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794916729151
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794916796046
+      }
+    ],
+    "3.2 สร้าง `src/db/seed/index.js` ใน transaction เดียว ใช้ `pg_advisory_xact_lock` และข้ามเมื่อมีสินค้าอยู่แล้ว": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245737
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794916808226
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794916911118
+      }
+    ],
+    "4.1 `src/repositories/productRepo.js`: `list({q,page,pageSize})`, `count`, `pickRandom(n)` (`ORDER BY random() LIMIT n`)": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245762
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794916917140
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794916972830
+      }
+    ],
+    "4.2 `src/repositories/orderRepo.js`: `insertOrder` (orders + order_items รวม `payload` ของ Lazada ใน transaction), `list({provider,pulled,page,pageSize})`, `findById` (พร้อม items), `findLazadaItemsByExternalId`, `resetPulled(id)`, `resetAllPulled(provider?)`": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245789
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794916978876
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794917106087
+      }
+    ],
+    "4.3 เพิ่มใน `orderRepo.js`: `lockAndStampPending({provider,limit,from,to})` และ `countPending({provider,from,to})` ใช้ `FOR UPDATE SKIP LOCKED` และ UPDATE `is_pulled`, `pulled_at` ภายใน transaction เดียวกับ client ที่ส่งเข้ามา": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245815
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794917112230
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794917928645
+      }
+    ],
+    "5.1 สร้าง `src/generators/templates/*.json` จากไฟล์ใน `data-example/` โดยไม่แก้ไขโครงสร้าง: `shopee.order.json`, `shopee.item.json`, `tiktok.order.json` (รวม key `\" \"`), `tiktok.line-item.json`, `lazada.order.json`, `lazada.item.json`": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245847
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794917934372
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794918262391
+      }
+    ],
+    "5.2 `src/generators/common.js`: random helpers, ตัวสร้าง ID (ตัวเลข string/number ไม่ซ้ำ), ฟอร์แมตเวลา (Unix seconds, `YYYY-MM-DD HH:mm:ss +0800`, ISO 8601, epoch ms string), ค่าอัตราแลกเปลี่ยนและการปัดราคาตาม D 6.1, ข้อมูลผู้ซื้อ/ที่อยู่/เบอร์สมมติ": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245873
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794918266922
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794918639554
+      }
+    ],
+    "5.3 `src/generators/shopee.js`: สร้าง `item_list[]` ต่อสินค้า, คำนวณ `total_amount`, เขียนทับฟิลด์ตาม D 6.2": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245898
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794918645065
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794918713068
+      }
+    ],
+    "5.4 `src/generators/tiktok.js`: สร้าง `line_items[]` (และ `sub_item_info`), คำนวณ `payment.sub_total`/`original_total_product_price`/`total_amount` ตาม D 6.2": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245923
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794918718872
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794918810767
+      }
+    ],
+    "5.5 `src/generators/lazada.js`: สร้างหัวออร์เดอร์ (`price`, `items_count` จากสินค้า) และ order item ต่อสินค้า (`order_id` ตรงกับหัวออร์เดอร์, `order_item_id` ไม่ซ้ำ, quantity = 1)": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245949
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794918816441
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794919703095
+      }
+    ],
+    "5.6 `src/generators/index.js` registry `provider -> generator` ที่ส่งคืน `{ externalOrderId, currency, totalAmount, items, payload }`": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245975
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794919709414
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794919854024
+      }
+    ],
+    "6.1 `src/envelopes.js`: ห่อ response ของ Shopee, TikTok, Lazada list (`data: { count, countTotal, orders }`), Lazada items พร้อมสร้าง `request_id` ใหม่ทุกครั้ง": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914245998
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794919859558
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794919964902
+      }
+    ],
+    "6.2 `src/validators.js`: `provider`, `productCount` (1-10), `page`/`pageSize`, `limit` (1-50), แปลง `time_from`/`time_to` (Unix seconds หรือ ISO 8601), ชื่อแทน `created_after`/`created_before` ของ Lazada และตรวจกรณีส่งสองชื่อพร้อมกัน, `time_from > time_to`": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246027
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794919970572
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794920108494
+      }
+    ],
+    "7.1 `src/services/productService.js`": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246055
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794920114107
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794920204635
+      }
+    ],
+    "7.2 `src/services/orderService.js`: `generate` (สุ่มสินค้า, สุ่ม quantity, เรียก generator, บันทึก, retry 3 ครั้งเมื่อ unique ชน), `list`, `getById`, `resetOne`, `resetAll`": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246081
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794920210367
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794920327851
+      }
+    ],
+    "7.3 `src/services/pullService.js`: `pullOrders(provider, params)` (BEGIN, `countPending`, `lockAndStampPending`, ห่อ envelope, COMMIT) และ `getLazadaItems(orderId)` แบบ read-only (404 เมื่อไม่พบ)": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246107
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794920334053
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794920458257
+      }
+    ],
+    "8.1 `src/routes/admin.api.js` และ controllers: endpoints ทั้งหมดตาม D 5.1 พร้อม error format `{ error: { code, message } }` และ status 200/201/400/404/500 (route `POST /orders/reset-pulled` ต้องประกาศก่อน `/orders/:id/...`)": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246133
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794920464427
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794920606457
+      }
+    ],
+    "8.2 `src/routes/pull.api.js` และ controller: `GET /api/pull/{shopee|tiktok|lazada}/orders` และ `GET /api/pull/lazada/orders/:orderId/items` พร้อม error format `{ error, message }`": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246163
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794920612601
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794920889724
+      }
+    ],
+    "8.3 `src/app.js`: json body parser, request log middleware, mount routes, error handler (JSON สำหรับ `/api/*`, หน้า `error.ejs` สำหรับหน้าเว็บ), static `public/`": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246191
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794920896377
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794921031182
+      }
+    ],
+    "9.1 Layout partials (`header`, `sidebar`, `footer`) และ `public/css/app.css` (ไม่พึ่ง CDN)": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246220
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794921035549
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794921113335
+      }
+    ],
+    "9.2 `src/routes/pages.js` และ views: `/` redirect ไป `/products`, `products.ejs` (ค้นหา, ตาราง, pagination)": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246248
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794921119167
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794921727809
+      }
+    ],
+    "9.3 `order-new.ejs` + `public/js/order-new.js`: เลือก Provider, ใส่จำนวนสินค้า 1-10, ปุ่ม **Gen Order Data** เรียก `POST /api/admin/orders/generate`, แสดงการ์ดสรุปและ error": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246278
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794921734096
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794921858133
+      }
+    ],
+    "9.4 `orders.ejs` + `public/js/orders.js`: filter Provider/สถานะการถูกดึง, ตาราง, pagination, ปุ่ม reset ต่อแถวและ \"รีเซ็ตทั้งหมด\" (confirm)": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246307
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794921863736
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794922076783
+      }
+    ],
+    "9.5 `order-detail.ejs`: ข้อมูลหลัก, รายการสินค้า, raw JSON (Lazada แสดงหัวออร์เดอร์และรายการสินค้าแยกส่วน), ปุ่ม reset": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246338
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794922086087
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794922244016
+      }
+    ],
+    "9.6 `error.ejs`": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246372
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794922249590
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794922345966
+      }
+    ],
+    "10. README": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246399
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794922356911
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794922553447
+      }
+    ],
+    "11. Checkpoint: ระบบรันได้": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246430
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794922559413
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794922729021
+      }
+    ],
+    "12.1 สร้างออร์เดอร์ทั้ง 3 Provider ผ่านหน้า UI ด้วยจำนวนสินค้า 1, 5 และ 10 และตรวจ input ผิด (0, 11, ไม่ใช่ตัวเลข)": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246456
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794922735414
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794922869502
+      }
+    ],
+    "12.2 เรียก Pulling API ของแต่ละ Provider สองครั้ง ตรวจว่าครั้งที่สองไม่คืนออร์เดอร์เดิมและหน้า \"คำสั่งซื้อ\" แสดงสถานะถูกดึง": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246483
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794922875543
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794923078007
+      }
+    ],
+    "12.3 ตรวจ `limit` (ค่าเริ่มต้น 10, 50 ผ่าน, 51/0/abc ได้ 400), `time_from`/`time_to` (ในช่วง, นอกช่วง, รูปแบบผิด, from > to ได้ 400 และไม่ stamp) และ `created_after`/`created_before` ของ Lazada": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246541
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794923082699
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794923362418
+      }
+    ],
+    "12.4 Lazada: `/orders/:orderId/items` คืนจำนวน item เท่ากับ `items_count`, `order_id` ตรงกับหัวออร์เดอร์, เรียกซ้ำได้ผลเดิม, ไม่พบ order ได้ 404": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246574
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794923367165
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794923487816
+      }
+    ],
+    "12.5 ตรวจการเรียกพร้อมกัน (เช่น `xargs -P` ยิง 10 request) ว่าไม่มีออร์เดอร์ซ้ำข้าม response": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246599
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794923492553
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794924169899
+      }
+    ],
+    "12.6 เขียนสคริปต์ครั้งเดียว (ไม่เก็บใน repo ก็ได้) เทียบชื่อฟิลด์ทุกระดับของ response ที่ได้กับไฟล์ใน `data-example/` ให้ตรงกัน": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246630
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794924175321
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794924286564
+      }
+    ],
+    "12.7 ตรวจปุ่ม reset ต่อออร์เดอร์และทั้งหมด แล้วดึงซ้ำได้": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794914246651
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794924291857
+      },
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794924484707
+      }
+    ],
+    "1. วางโครงโปรเจคและ Docker": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794915985812
+      }
+    ],
+    "2. Database layer": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794916723226
+      }
+    ],
+    "3. Product seed": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794916911158
+      }
+    ],
+    "4. Repositories": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794917928732
+      }
+    ],
+    "5. Generators": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794919854070
+      }
+    ],
+    "6. Envelopes และ validators": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794920108538
+      }
+    ],
+    "7. Services": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794920458288
+      }
+    ],
+    "8. Routes และ controllers สำหรับ API": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794921031215
+      }
+    ],
+    "9. Backoffice UI (EJS ภาษาไทย)": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794922346001
+      }
+    ],
+    "12. ตรวจสอบตาม Definition of Done (ด้วยมือ)": [
+      {
+        "executionId": "4e3715f0-0ce2-4396-9ab5-d275eb543c72",
+        "chatSessionId": "sess_666bcff1-a5b4-42cf-8657-4ea6d6ce231a",
+        "timestamp": 1794924484824
+      }
+    ]
+  }
+}

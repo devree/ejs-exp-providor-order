@@ -1,0 +1,9 @@
+<% var current = (typeof active !== 'undefined') ? active : ''; %>
+<aside class="sidebar">
+  <div class="sidebar-brand">Order Pulling Simulator</div>
+  <nav class="sidebar-nav">
+    <a href="/products" class="nav-link<%= current === 'products' ? ' active' : '' %>">สินค้า</a>
+    <a href="/orders/new" class="nav-link<%= current === 'orders-new' ? ' active' : '' %>">สร้างออร์เดอร์</a>
+    <a href="/orders" class="nav-link<%= current === 'orders' ? ' active' : '' %>">คำสั่งซื้อ</a>
+  </nav>
+</aside>
