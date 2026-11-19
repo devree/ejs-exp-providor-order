@@ -169,7 +169,7 @@ Acceptance Criteria
 3. ข้อมูลใน PostgreSQL SHALL คงอยู่ข้ามการ restart ผ่าน named volume
 4. ค่าตั้งค่า (port, DB credentials, ค่า limit ฯลฯ) SHALL อ่านจาก environment variable พร้อมไฟล์ `.env.example` และ SHALL NOT hardcode credentials ใน source
 5. app SHALL รอให้ DB พร้อมก่อน start (healthcheck / retry)
-6. ระบบ SHALL มี README อธิบายวิธีรัน, URL ของ Backoffice, ตัวอย่าง `curl` ของ Pulling API ทั้ง 3 Provider (รวม Lazada order items)
+6. ระบบ SHALL รันที่พอร์ต 3002 เป็นค่าเริ่มต้น (เปลี่ยนได้ด้วย env `APP_PORT`) และ SHALL มี README อธิบายวิธีรัน, URL ของ Backoffice (`http://localhost:3002`), ตัวอย่าง `curl` ของ Pulling API ทั้ง 3 Provider (รวม Lazada order items)
 
 ## 5. Data Requirements: โครงสร้างออร์เดอร์ที่สร้าง
 

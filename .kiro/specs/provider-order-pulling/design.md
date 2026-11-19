@@ -208,7 +208,7 @@ Response สำเร็จ (200) ใช้ envelope ตามตัวอย่
 ตัวอย่าง
 
 ```bash
-curl "http://localhost:3000/api/pull/shopee/orders?limit=5&time_from=2026-11-17T00:00:00Z"
+curl "http://localhost:3002/api/pull/shopee/orders?limit=5&time_from=2026-11-17T00:00:00Z"
 ```
 
 ### 5.3 Page routes (EJS)
@@ -358,7 +358,7 @@ services:
       DB_HOST: db
     depends_on:
       db: { condition: service_healthy }
-    ports: ["${APP_PORT:-3000}:3000"]
+    ports: ["${APP_PORT:-3002}:3002"]
 volumes:
   pgdata:
 ```
@@ -369,7 +369,7 @@ volumes:
 `.env.example`
 
 ```
-APP_PORT=3000
+APP_PORT=3002
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=pulling

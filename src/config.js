@@ -16,7 +16,7 @@ function strFromEnv(name, fallback) {
 }
 
 const config = {
-  port: intFromEnv('APP_PORT', 3000),
+  port: intFromEnv('APP_PORT', 3002),
   db: {
     host: strFromEnv('DB_HOST', 'localhost'),
     port: intFromEnv('DB_PORT', 5432),

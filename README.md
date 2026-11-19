@@ -22,7 +22,7 @@ docker compose up --build
 
 ## Backoffice
 
-เปิด http://localhost:3000 (เปลี่ยนพอร์ตได้ด้วย `APP_PORT` ใน `.env`)
+เปิด http://localhost:3002 (เปลี่ยนพอร์ตได้ด้วย `APP_PORT` ใน `.env`)
 
 | เมนู | URL | หน้าที่ |
 |---|---|---|
@@ -41,7 +41,7 @@ docker compose up --build
 
 ## Pulling API
 
-Base URL: `http://localhost:3000/api/pull` (ไม่ต้องมี authentication)
+Base URL: `http://localhost:3002/api/pull` (ไม่ต้องมี authentication)
 
 | Method | Path | คำอธิบาย |
 |---|---|---|
@@ -69,25 +69,25 @@ Base URL: `http://localhost:3000/api/pull` (ไม่ต้องมี authenti
 
 ```bash
 # Shopee (ค่าเริ่มต้น limit=10)
-curl "http://localhost:3000/api/pull/shopee/orders"
+curl "http://localhost:3002/api/pull/shopee/orders"
 
 # TikTok จำกัด 5 รายการ
-curl "http://localhost:3000/api/pull/tiktok/orders?limit=5"
+curl "http://localhost:3002/api/pull/tiktok/orders?limit=5"
 
 # Lazada สูงสุด 50 รายการ
-curl "http://localhost:3000/api/pull/lazada/orders?limit=50"
+curl "http://localhost:3002/api/pull/lazada/orders?limit=50"
 
 # กรองด้วยเวลา Unix seconds
-curl "http://localhost:3000/api/pull/shopee/orders?time_from=1735689600&time_to=1893455999"
+curl "http://localhost:3002/api/pull/shopee/orders?time_from=1735689600&time_to=1893455999"
 
 # กรองด้วย ISO 8601
-curl "http://localhost:3000/api/pull/tiktok/orders?time_from=2025-01-01T00:00:00Z&time_to=2030-12-31T23:59:59Z"
+curl "http://localhost:3002/api/pull/tiktok/orders?time_from=2025-01-01T00:00:00Z&time_to=2030-12-31T23:59:59Z"
 
 # Lazada ใช้ชื่อพารามิเตอร์แบบ Lazada ได้
-curl "http://localhost:3000/api/pull/lazada/orders?created_after=2025-01-01T00:00:00Z&created_before=2030-12-31T23:59:59Z&limit=20"
+curl "http://localhost:3002/api/pull/lazada/orders?created_after=2025-01-01T00:00:00Z&created_before=2030-12-31T23:59:59Z&limit=20"
 
 # Lazada: รายการสินค้าของออร์เดอร์ (ใช้ order_id จากหัวออร์เดอร์; เรียกซ้ำได้ผลเดิม)
-curl "http://localhost:3000/api/pull/lazada/orders/<order_id>/items"
+curl "http://localhost:3002/api/pull/lazada/orders/<order_id>/items"
 ```
 
 ### โครงสร้าง response
@@ -123,17 +123,17 @@ curl "http://localhost:3000/api/pull/lazada/orders/<order_id>/items"
 1. **หน้า UI** เมนู คำสั่งซื้อ: ปุ่ม reset ต่อแถว (หรือในหน้ารายละเอียด) และปุ่ม "รีเซ็ตทั้งหมด"
 2. **Admin API** ออร์เดอร์เดียว:
    ```bash
-   curl -X POST http://localhost:3000/api/admin/orders/1/reset-pulled
+   curl -X POST http://localhost:3002/api/admin/orders/1/reset-pulled
    ```
 3. **Admin API** ทุกออร์เดอร์ (ระบุ `?provider=shopee|tiktok|lazada` เพื่อ reset เฉพาะ Provider):
    ```bash
-   curl -X POST http://localhost:3000/api/admin/orders/reset-pulled
-   curl -X POST "http://localhost:3000/api/admin/orders/reset-pulled?provider=lazada"
+   curl -X POST http://localhost:3002/api/admin/orders/reset-pulled
+   curl -X POST "http://localhost:3002/api/admin/orders/reset-pulled?provider=lazada"
    ```
 
 ## Admin API
 
-Base URL: `http://localhost:3000/api/admin` (ใช้โดยหน้า Backoffice และเรียกเองได้)
+Base URL: `http://localhost:3002/api/admin` (ใช้โดยหน้า Backoffice และเรียกเองได้)
 
 | Method | Path | คำอธิบาย |
 |---|---|---|
@@ -147,7 +147,7 @@ Base URL: `http://localhost:3000/api/admin` (ใช้โดยหน้า Back
 ตัวอย่าง:
 
 ```bash
-curl -X POST http://localhost:3000/api/admin/orders/generate \
+curl -X POST http://localhost:3002/api/admin/orders/generate \
   -H "Content-Type: application/json" \
   -d '{"provider":"lazada","productCount":3}'
 ```
@@ -180,7 +180,7 @@ docker compose down -v
 
 | ตัวแปร | ค่าเริ่มต้น | คำอธิบาย |
 |---|---|---|
-| `APP_PORT` | `3000` | พอร์ตที่เปิดบนเครื่องของคุณ |
+| `APP_PORT` | `3002` | พอร์ตที่เปิดบนเครื่องของคุณ |
 | `DB_HOST` | `localhost` | host ของฐานข้อมูล (ใน Docker Compose ถูกแทนที่เป็น `db` อัตโนมัติ) |
 | `DB_PORT` | `5432` | พอร์ตฐานข้อมูล (ใน Docker Compose ใช้ 5432 ภายใน network และไม่เปิดออกนอกเครื่อง) |
 | `DB_USER` | `pulling` | ผู้ใช้ PostgreSQL |

@@ -5,7 +5,7 @@
 
 - [x] 1. วางโครงโปรเจคและ Docker
   - [x] 1.1 สร้าง `package.json` (dependency: `express`, `ejs`, `pg`; Node 22; script `start`) และ `.gitignore`, `.dockerignore`
-  - [x] 1.2 สร้าง `src/config.js` อ่านค่าจาก env (`APP_PORT`, `DB_*`, `PULL_LIMIT_DEFAULT=10`, `PULL_LIMIT_MAX=50`, `ORDER_ITEMS_MAX=10`) และ `.env.example`
+  - [x] 1.2 สร้าง `src/config.js` อ่านค่าจาก env (`APP_PORT` ค่าเริ่มต้น 3002 ซึ่งใช้เป็นพอร์ตที่ app listen ทั้งใน container และบนเครื่อง, `DB_*`, `PULL_LIMIT_DEFAULT=10`, `PULL_LIMIT_MAX=50`, `ORDER_ITEMS_MAX=10`) และ `.env.example`
   - [x] 1.3 สร้าง `Dockerfile` (`node:22-alpine`, `npm ci --omit=dev`, รันด้วย user `node`)
   - [x] 1.4 สร้าง `docker-compose.yml` ที่มี service `db` (postgres:16-alpine, healthcheck, named volume `pgdata`) และ `app` (depends_on healthy, ไม่ publish port ของ DB)
   - _Requirements: 7.1, 7.3, 7.4, 7.5_
